@@ -3,7 +3,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, C
 
 const Footer = () => {
   return (
-    <footer className="bg-[#15803d] text-white font-sans">
+    <footer className="bg-[#15803d] text-white text-left font-sans">
       {/* Top Section: Help & Newsletter */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 p-10 border-b border-white/20">
         <div>

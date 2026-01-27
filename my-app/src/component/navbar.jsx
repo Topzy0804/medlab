@@ -2,9 +2,9 @@ import React from 'react'
 
 const navbar = () => {
   return (
-    <div className="flex justify-between items-center p-4 bg-white shadow-lg shadow-green-200">
+    <div className="flex justify-between items-center p-4 bg-white shadow-lg shadow-green-200 font-serif">
       <div>
-        <h1 className='font-bold text-5xl text-green-500'>MedLab</h1>
+        <h1 className='font-bold text-5xl text-green-800'>Med<span className='text-black'>Lab</span></h1>
       </div>
       <div>
         <nav>
