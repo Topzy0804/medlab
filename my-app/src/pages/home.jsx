@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-import { User, Mail, SquareCheckBig, Building2, Hotel, Smile, Medal, PhoneCall, Heart, Syringe, BriefcaseMedical, Activity, Stethoscope, BrainCircuit} from 'lucide-react';
+import { User, Users, Mail, SquareCheckBig, Building2, NotebookTabs, Ambulance, Microscope, Hand, Hotel, Smile, Medal, PhoneCall, Heart, Syringe, BriefcaseMedical, Activity, Stethoscope, House, Quote, Facebook, Twitter, Instagram, Linkedin} from 'lucide-react';
 
 import img1 from '../assets/img1.png'
 import img2 from '../assets/img2.png'
@@ -14,6 +14,17 @@ import image2 from '../assets/image2.jpg'
 import image3 from '../assets/image3.jpg'
 import image4 from '../assets/image4.jpg'
 import image5 from '../assets/image5.jpg'
+import gallery1 from '../assets/pf1.jpg'
+import gallery2 from '../assets/pf2.jpg'
+import gallery3 from '../assets/pf3.jpg'
+import gallery4 from '../assets/pf4.jpg'
+import gallery5 from '../assets/pf5.jpg'
+import gallery6 from '../assets/pf6.jpg'
+import com1 from '../assets/testi1.jpg'
+import doctor1 from '../assets/doctor1.jpg'
+import comment from '../assets/comment1.jpg'
+import blog1 from '../assets/blog1.jpg'
+import blog3 from '../assets/blog3.jpg'
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -84,6 +95,50 @@ const home = () => {
     }
 
   ];
+
+  const getGallery = [
+
+    {
+      id: 1,
+      category: 'Cardiology',
+      image: gallery4,
+    },
+
+    {
+      id: 2,
+      category: 'Diabetes',
+      image: gallery1,
+    },
+
+    {
+      id: 3,
+      category: 'Diabetes',
+      image: gallery2,
+    },
+
+    {
+      id: 4,
+      category: 'Pediatrics',
+      image: gallery3,
+    },
+
+    {
+      id: 5,
+      category: 'Pediatrics',
+      image: gallery5,
+    },
+
+    {
+      id: 6,
+      category: 'Neurosurgery',
+      image: gallery6,
+    }
+  ];
+
+  const [filter, setFilter] = useState('All');
+  
+
+  const filterImages = filter === 'All' ? getGallery : getGallery.filter(img => img.category === filter);
 
   const [activeDept, setActiveDept] = useState(deptData[0]);
 
@@ -284,7 +339,7 @@ const home = () => {
     </section>
 
     <section className=' bg-green-800 mb-15'>
-    <div className='grid grid-cols-4 border py-30 px-25'>
+    <div className='grid grid-cols-4 border border-green-800 py-30 px-25 max-w-7xl mx-auto gap-10'>
       <div className='flex flex-col gap-3 justify-center items-center'>
         <Hotel size={20} className="text-green-600 border h-20 w-20 bg-white p-6"/>
         <h4 className='font-serif text-3xl font-semibold text-white'>400</h4>
@@ -312,19 +367,349 @@ const home = () => {
     </section>
 
     <section>
-      <div>
-        <div>
-          <h1>
+      <div className='my-30'>
+        <div className='m-20'>
+          <h1 className='font-serif text-4xl text-center'>
             Services Provided by MedLab
           </h1>
-          <p>
+          <p className='font-sans text-center max-w-3xl mx-auto mt-4 text-gray-500'>
             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
           </p>
         </div>
 
-        <div className=''>
-          <div>
-            
+        <div className='grid grid-cols-3 border-none max-w-7xl mx-auto px-10 py-10'>
+
+        <div className='group flex flex-col justify-start items-start gap-10 p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-green-600 transition-all duration-300 ease-in-out hover:text-white'>
+        <span className='border group-hover:bg-white group-hover:text-green-600 border-green-600 bg-green-600 p-5 text-white'>
+        <Ambulance size={35} />
+        </span>
+          <h2 className='font-serif text-2xl '>
+            Fast Ambulance
+          </h2>
+          <p className='font-sans text-md text-left'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+          </p>
+        </div>
+
+        <div className='group flex flex-col justify-start items-start gap-10 p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-green-600 transition-all duration-300 ease-in-out hover:text-white'>
+        <span className='border group-hover:bg-white group-hover:text-green-600 border-green-600 bg-green-600 p-5 text-white'>
+        <Stethoscope size={35} />
+        </span>
+          <h2 className='font-serif text-2xl '>
+            Dental Specialist
+          </h2>
+          <p className='font-sans text-md text-left'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+          </p>
+        </div>
+
+        <div className='group flex flex-col justify-start items-start gap-10 p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-green-600 transition-all duration-300 ease-in-out hover:text-white'>
+        <span className='border group-hover:bg-white group-hover:text-green-600 border-green-600 bg-green-600 p-5 text-white'>
+        <Microscope size={35} />
+        </span>
+          <h2 className='font-serif text-2xl '>
+            Mordern Laboratory
+          </h2>
+          <p className='font-sans text-md text-left'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+          </p>
+        </div>
+
+        <div className='group flex flex-col justify-start items-start gap-10 p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-green-600 transition-all duration-300 ease-in-out hover:text-white'>
+        <span className='border group-hover:bg-white group-hover:text-green-600 border-green-600 bg-green-600 p-5 text-white'>
+        <Users size={35} />
+        </span>
+          <h2 className='font-serif text-2xl '>
+            Children center
+          </h2>
+          <p className='font-sans text-md text-left'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+          </p>
+        </div>
+
+        <div className='group flex flex-col justify-start items-start gap-10 p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-green-600 transition-all duration-300 ease-in-out hover:text-white'>
+        <span className='border group-hover:bg-white group-hover:text-green-600 border-green-600 bg-green-600 p-5 text-white'>
+        <Heart size={35} />
+        </span>
+          <h2 className='font-serif text-2xl '>
+            Heart Surgery
+          </h2>
+          <p className='font-sans text-md text-left'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+          </p>
+        </div>
+
+        <div className='group flex flex-col justify-start items-start gap-10 p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-green-600 transition-all duration-300 ease-in-out hover:text-white'>
+        <span className='border group-hover:bg-white group-hover:text-green-600 border-green-600 bg-green-600 p-5 text-white'>
+        <Hand size={35} />
+        </span>
+          <h2 className='font-serif text-2xl '> 
+            Care Advice
+          </h2>
+          <p className='font-sans text-md text-left'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+          </p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section className='bg-[#F9F9F9] py-25'>
+    <div>
+      <div className='flex flex-col justify-center items-center gap-6 mb-20'>
+        <h1 className='font-serif text-4xl max-w-2xl font-bold'>
+          Here is some of our latest cases
+        </h1>
+        <p className='max-w-2xl font-sans text-center text-gray-500'>
+          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+        </p>
+      </div>
+
+      <div>
+      <div className='flex justify-center gap-4 mb-12'>
+    {['All', 'Cardiology', 'Diabetes', 'Pediatrics', 'Neurosurgery'].map((category) => (
+      <button
+      onClick={() => setFilter(category)}
+      className={`px-4 py-2 text-sm font-sans border ${filter === category ? 'bg-green-600 text-white border-green-600' : 'bg-white text-gray-600 border-gray-300 hover:bg-green-600 hover:text-white hover:border-green-600'} rounded-sm transition-all`}
+      >{category}</button>
+    ))}
+      </div>
+
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto px-4'>
+        {filterImages.map(item => (
+          <div 
+          key={item.id} 
+          className='relative group overflow-hidden cursor-pointer animate-fade-In'>
+          <img 
+          src={item.image} 
+          alt={item.category} 
+          className='w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110' />
+
+          <div className='absolute inset-0 bg-green-900/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center items-center text-white p-6'>
+          <p className='text-sm uppercase tracking-widest mb-2 opacity-80 font-sans'>Cloud services</p>
+          <h3 className='text-xl font-bold font-serif text-center mb-4'>Personalized Meditation</h3>
+
+          <div className='border border-white/40 p-2 hover:bg-white hover:text-green-900 transition-colors'>
+            <BriefcaseMedical size={20} />
+          </div>
+          </div>
+
+          </div>
+        )
+
+        )}
+      </div>
+
+      </div>
+    </div>
+
+    </section>
+
+    <section className='bg-[#F9F9F9] py-25'>
+      <div className='my-30 px-4'>
+        <div className='flex flex-col gap-4 justify-center items-center'>
+          <h1 className="font-serif text-4xl max-w-2xl font-bold">What People Say</h1>
+          <p className="font-sans text-sm max-w-2xl text-gray-500">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+        </div>
+
+        <div className='max-w-7xl mx-auto mt-20 px-4 grid grid-cols-1 md:grid-cols-3 gap-10'>
+          <div className='relative group'>
+          <div className='flex flex-col gap-6 bg-white group-hover:bg-green-600 group-hover:text-white py-15 px-10 rounded-sm h-full justify-center items-center border border-gray-100'>
+          <div className='text-green-600 group-hover:text-white'>
+            <Quote size={30}/>
+          </div>
+            <p>it amazing how much easier it has been to meet new people and connect with others who share my interests.</p>
+          </div>
+          <div className='flex flex-col gap-3 absolute top-52 left-35 justify-center items-center'>
+            <img src={com1} alt="" className='rounded-full w-[70px] group-hover:border-5 group-hover:border-green-600'/>
+            <h3 className='font-serif text-2xl text-green-800'>John Doe</h3>
+            <p className='font-sans text-sm text-green-300'>Patient</p>
+          </div>
+
+          </div>
+
+          <div className='relative group'>
+          <div className='flex flex-col gap-6 bg-white group-hover:bg-green-600 group-hover:text-white p-10 rounded-sm h-full justify-center items-center border border-gray-100'>
+            <div className='text-green-600 group-hover:text-white'>
+            <Quote size={30}/>
+            </div>
+            <p>it amazing how much easier it has been to meet new people and connect with others who share my interests.</p>
+          </div>
+          <div className='flex flex-col gap-3 absolute top-52 left-26 justify-center items-center'>
+            <img src={com1} alt="" className='rounded-full w-[70px] group-hover:border-5 group-hover:border-green-600'/>
+            <h3 className='font-serif text-2xl text-green-800'>Aphanso james</h3>
+            <p className='font-sans text-sm text-green-300'>cancer Patient</p>
+          </div>
+
+          </div>
+
+          <div className='relative group'>
+          <div className='flex flex-col gap-6 bg-white group-hover:bg-green-600 group-hover:text-white p-10 rounded-sm h-full justify-center items-center border border-gray-100'>
+            <div className='text-green-600 group-hover:text-white'>
+            <Quote size={30}/>
+            </div>
+            <p>it amazing how much easier it has been to meet new people and connect with others who share my interests.</p>
+          </div>
+          <div className='flex flex-col gap-3 absolute top-52 left-35 justify-center items-center'>
+            <img src={com1} alt="" className='rounded-full w-[70px] group-hover:border-5 group-hover:border-green-600'/>
+            <h3 className='font-serif text-2xl text-green-800'>John Doe</h3>
+            <p className='font-sans text-sm text-green-300'>Patient</p>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div className='max-w-7xl mx-auto py-25 px-4'>
+        <div className='flex flex-col gap-5 justify-center items-center'>
+          <h1 className='font-serif text-4xl font-bold'>Our Outstanding Team is Active To Help You</h1>
+          <p className='font-sans text-sm text-gray-400 max-w-2xl text-center'>There are many variation of the passage of the Lorem ipsium available, but the majority have suffered alteration in some form.</p>
+        </div>
+
+        <div className='grid grid-cols-4 gap-10'>
+          <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
+          <div className='relative'>
+            <img src={doctor1} alt="" className='relative'/>
+            <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all'>
+              <Facebook size={20} className=" mx-2"/>
+              <Twitter size={20} className="mx-2"/>
+              <Instagram size={20} className=" mx-2"/>
+              <Linkedin size={20} className=" mx-2"/>
+            </div>
+          </div>
+            <div className='flex flex-col gap-1'>
+            <p className='font-sans text-sm text-green-400'>Cardiologist</p>
+            <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
+            </div>
+          </div>
+
+          <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
+          <div className='relative'>
+            <img src={doctor1} alt="" className='relative'/>
+            <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all'>
+              <Facebook size={20} className=" mx-2"/>
+              <Twitter size={20} className="mx-2"/>
+              <Instagram size={20} className=" mx-2"/>
+              <Linkedin size={20} className=" mx-2"/>
+            </div>
+          </div>
+            <div className='flex flex-col gap-1'>
+            <p className='font-sans text-sm text-green-400'>Cardiologist</p>
+            <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
+            </div>
+          </div>
+
+          <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
+          <div className='relative'>
+            <img src={doctor1} alt="" className='relative'/>
+            <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all'>
+              <Facebook size={20} className=" mx-2"/>
+              <Twitter size={20} className="mx-2"/>
+              <Instagram size={20} className=" mx-2"/>
+              <Linkedin size={20} className=" mx-2"/>
+            </div>
+          </div>
+            <div className='flex flex-col gap-1'>
+            <p className='font-sans text-sm text-green-400'>Cardiologist</p>
+            <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
+            </div>
+          </div>
+
+          <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
+          <div className='relative'>
+            <img src={doctor1} alt="" className='relative'/>
+            <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-200 ease-in-out'>
+              <Facebook size={20} className=" mx-2"/>
+              <Twitter size={20} className="mx-2"/>
+              <Instagram size={20} className=" mx-2"/>
+              <Linkedin size={20} className=" mx-2"/>
+            </div>
+          </div>
+            <div className='flex flex-col gap-1'>
+            <p className='font-sans text-sm text-green-400'>Cardiologist</p>
+            <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className='my-25'>
+    <div className='grid grid-cols-3'>
+      <div className='flex flex-col justify-center items-center gap-6 py-20 px-10 bg-green-600 text-white' >
+      <div className='bg-green-300 flex justify-center items-center p-6 rounded-full'>
+      <NotebookTabs size={30} className=""/>
+      </div>
+        <h3 className='font-serif text-3xl'>Best  Monitoring System</h3>
+        <p className='text-center font-sans text-sm'>Despite advancement in technology and understanding of biological system, drug discovery is still a lengthy and expensive process.</p>
+      </div>
+
+      <div className='flex flex-col justify-center items-center gap-6 py-20 px-10 bg-gray-900 text-white' >
+      <div className='bg-gray-300 flex justify-center items-center p-6 rounded-full'>
+      <House size={30} className=""/>
+      </div>
+        <h3 className='font-serif text-3xl'>Best  Monitoring System</h3>
+        <p className='text-center font-sans text-sm'>Despite advancement in technology and understanding of biological system, drug discovery is still a lengthy and expensive process.</p>
+      </div>
+
+      <div className='flex flex-col justify-center items-center gap-6 py-20 px-10 bg-lime-700 text-white' >
+      <div className='bg-lime-300 flex justify-center items-center p-6 rounded-full'>
+      <Stethoscope size={30} className=""/>
+      </div>
+        <h3 className='font-serif text-3xl'>Best  Monitoring System</h3>
+        <p className='text-center font-sans text-sm'>Despite advancement in technology and understanding of biological system, drug discovery is still a lengthy and expensive process.</p>
+      </div>
+    </div>
+    </section>
+
+    <section className='my-25'>
+      <div>
+        <div className='flex flex-col gap-4 justify-center items-center mb-20'>
+          <h1 className='font-serif text-4xl'>Latest News</h1>
+          <p className='text-center text-gray-500 text-sm'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+        </div>
+
+        <div className='grid grid-cols-2 max-w-7xl mx-auto px-4 gap-10'>
+          <div className='flex gap-6 border border-gray-100 pr-3'>
+            <img src={blog1} alt="" className='max-w-2xs transition-transform duration-300 ease-in-out hover:scale-105'/>
+            <div className='flex flex-col gap-4 justify-start items-start py-10'>
+              <h3 className='font-serif font-bold text-left'>These blood maker may higher risk of diseases</h3>
+              <p className='font-sans text-gray-500 text-xs text-left'>The price is something not defined as financial. it could be time</p>
+              <div className='flex gap-3 justify-center items-center text-xs text-gray-400 text-left'>
+                <img src={comment} alt="" className='rounded-full w-10'/>
+                <span><p>Alice Williams</p></span>
+                <p>29 January, 2026</p>
+              </div>
+            </div>
+          </div>
+
+          <div className='flex flex-col  row-span-2 '>
+            <img src={blog3} alt="" className='w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105'/>
+            <div className='flex flex-col bg-green-900 gap-7 text-white justify-start items-start py-10 px-5'>
+              <h3 className='font-serif font-bold text-lg text-left'>These blood maker may higher risk of diseases</h3>
+              <p className='font-sans font-bold text-sm text-left'>The price is something not defined as financial. it could be time</p>
+              <div className='flex gap-3 justify-center items-center text-xs text-gray-400 text-left'>
+                <img src={comment} alt="" className='rounded-full w-10'/>
+                <span><p>Alice Williams</p></span>
+                <p>29 January, 2026</p>
+              </div>
+            </div>
+          </div>
+
+          <div className='flex gap-6 border border-gray-100 pr-3'>
+            <img src={blog1} alt="" className='max-w-2xs transition-transform duration-300 ease-in-out hover:scale-105'/>
+            <div className='flex flex-col gap-4 justify-start items-start py-10'>
+              <h3 className='font-serif font-bold text-left'>These blood maker may higher risk of diseases</h3>
+              <p className='font-sans text-gray-500 text-xs text-left'>The price is something not defined as financial. it could be time</p>
+              <div className='flex gap-3 justify-center items-center text-xs text-gray-400 text-left'>
+                <img src={comment} alt="" className='rounded-full w-10'/>
+                <span><p>Alice Williams</p></span>
+                <p>29 January, 2026</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -2,11 +2,11 @@ import React from 'react'
 
 const navbar = () => {
   return (
-    <div className="flex justify-between items-center p-4 bg-white shadow-lg shadow-green-200 font-serif">
+    <div className="flex justify-between items-center py-7 px-20 bg-white shadow-sm shadow-gray-200 max-w-7xl mx-auto font-serif">
       <div>
-        <h1 className='font-bold text-5xl text-green-800'>Med<span className='text-black'>Lab</span></h1>
+        <h1 className='font-bold text-4xl text-green-800'><span className="bg-green-700 text-white p-1 rounded">+</span>Med<span className='text-black'>Lab</span></h1>
       </div>
-      <div>
+      <div className='font-sans'>
         <nav>
           <ul className='flex gap-8 cursor-pointer'>
             <li className=' hover:text-green-500 hover:border-b-2 hover:border-green-500'>Pages</li>

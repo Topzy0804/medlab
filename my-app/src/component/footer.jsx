@@ -5,36 +5,36 @@ const Footer = () => {
   return (
     <footer className="bg-[#15803d] text-white text-left font-sans">
       {/* Top Section: Help & Newsletter */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 p-10 border-b border-white/20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-10 py-25 border-b border-white/20">
         <div>
-          <h3 className="text-xl font-bold mb-2">Need Help?</h3>
-          <p className="text-sm opacity-90">Please feel free to contact our friendly reception staff with any medical enquiry, or call</p>
-          <p className="text-lg font-semibold mt-1 text-[#bef264]">+234 123 456 7890</p>
+          <h3 className="text-xl font-bold font-serif mb-2">Need Help?</h3>
+          <p className="text-sm opacity-90 font-sans">Please feel free to contact our friendly reception staff with any medical enquiry, or call</p>
+          <p className="text-lg font-semibold font-sans mt-1 text-[#bef264]">+234 123 456 7890</p>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end gap-0">
           <div className="flex-1">
-            <h3 className="text-xl font-bold mb-2">Subscribe Newsletter</h3>
+            <h3 className="text-xl font-bold font-serif mb-2">Subscribe Newsletter</h3>
             <input 
               type="text" 
               placeholder="Your email address" 
               className="w-full p-3 bg-white/20 border border-white/30 text-white placeholder:text-white/60 focus:outline-none" 
             />
           </div>
-          <button className="bg-[#bef264] text-green-900 font-bold px-6 py-3 hover:bg-white transition-colors">
+          <button className="bg-[#bef264] text-green-900 font-bold font-sans px-6 py-3 hover:bg-white transition-colors">
             Subscribe
           </button>
         </div>
       </div>
 
       {/* Middle Section: Main Links */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 p-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 px-10 py-25">
         {/* Logo & Socials */}
         <div className="space-y-4">
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <span className="bg-white text-green-700 p-1 rounded">+</span> MediGrids
+          <h1 className="text-2xl font-serif font-bold flex items-center gap-2">
+            <span className="bg-white text-green-700 p-1 rounded">+</span> MedLab
           </h1>
-          <p className="text-sm opacity-80 leading-relaxed">
+          <p className="text-sm opacity-80 font-sans leading-relaxed">
             There’s nothing in this story to make us think he was dreaming about riches.
           </p>
           <div className="flex gap-2">
@@ -48,8 +48,8 @@ const Footer = () => {
 
         {/* Useful Links */}
         <div>
-          <h4 className="text-lg font-bold mb-4 border-b border-white/20 pb-2">Useful Links</h4>
-          <div className="grid grid-cols-2 gap-2 text-sm opacity-80">
+          <h4 className="text-lg font-bold font-serif mb-4 border-b border-white/20 pb-2">Useful Links</h4>
+          <div className="grid grid-cols-2 gap-2 text-sm opacity-80 font-sans">
             <div className="space-y-2">
               <p className="hover:translate-x-1 transition-transform cursor-pointer">About</p>
               <p className="hover:translate-x-1 transition-transform cursor-pointer">Team</p>
@@ -69,8 +69,8 @@ const Footer = () => {
 
         {/* Opening Hours */}
         <div>
-          <h4 className="text-lg font-bold mb-4 border-b border-white/20 pb-2">Opening Hours</h4>
-          <div className="space-y-3 text-sm opacity-80">
+          <h4 className="text-lg font-bold font-serif mb-4 border-b border-white/20 pb-2">Opening Hours</h4>
+          <div className="space-y-3 text-sm opacity-80 font-sans">
             <div className="flex justify-between items-center">
               <span className="flex items-center gap-2"><Clock size={14}/> Mon - Tue</span>
               <span>08:30 - 18:30</span>
@@ -92,8 +92,8 @@ const Footer = () => {
 
         {/* Contact info */}
         <div>
-          <h4 className="text-lg font-bold mb-4 border-b border-white/20 pb-2">Contact</h4>
-          <div className="space-y-4 text-sm opacity-80">
+          <h4 className="text-lg font-bold font-serif mb-4 border-b border-white/20 pb-2">Contact</h4>
+          <div className="space-y-4 text-sm opacity-80 font-sans">
             <p className="flex gap-3 items-start"><MapPin size={20} className="shrink-0" /> 23 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
             <p className="flex gap-3 items-center"><Phone size={16} /> +234 456 454 6677</p>
             <p className="flex gap-3 items-center"><Mail size={16} /> Mail. support@classigrids.com</p>
@@ -103,7 +103,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="bg-black/10 py-6 px-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-4 text-sm opacity-70">
+        <div className="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-4 text-sm font-sans opacity-70">
           <p>Designed and Developed by GrayGrids</p>
           <div className="flex gap-6">
             <p className="hover:text-white cursor-pointer">Terms & Conditions</p>
