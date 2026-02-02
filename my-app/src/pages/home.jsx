@@ -143,7 +143,7 @@ const home = () => {
   const [activeDept, setActiveDept] = useState(deptData[0]);
 
   return (
-    <div>
+    <div className='pt-28'>
     <section className='bg-[#F9F9F9] w-full'>
       <Swiper
       modules={[Navigation, Autoplay, Pagination]}
