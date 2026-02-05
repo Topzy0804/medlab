@@ -29,7 +29,7 @@ const Navbar = () => {
                 <li className="px-4 py-2 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
                 <Link to="/time-table">Time Table</Link></li>
                 <li className="px-4 py-2 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
-                <Link to="/testimonials">Testimonials</Link></li>
+                <Link to="/testimonies">Testimonials</Link></li>
                 <li className="px-4 py-3 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
                 <Link to="/project-details">Project Details</Link></li>
                 <li className="px-4 py-3 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
@@ -53,7 +53,7 @@ const Navbar = () => {
 
       <div>
         <button className='border hover:border-white border-green-600 p-2 px-4 rounded-2xl text-green-600 hover:bg-green-600 hover:text-white transition duration-300 ease-in-out font-sans'>
-          Book Appointment
+        <Link to="/appointment"> Book Appointment </Link>
         </button>
       </div>
     </div>

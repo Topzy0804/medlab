@@ -1,11 +1,103 @@
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { account, ID, tablesDB} from '../lib/appwrite'
+import { createRows } from '../utils/db'
 
 import { Facebook, Linkedin, Mail, Instagram } from 'lucide-react'
 
 import imgReg from '../assets/img1.png'
 
 const registration = () => {
+  const navigate = useNavigate();
+
+  const [userDetails, setUserDetails] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: ""
+
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value
+    }));
+  }
+
+
+
+  const handleUserRegistration = async (e) => {
+    e.preventDefault();
+
+    if (userDetails.password !== userDetails.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    if (!userDetails.fullName || !userDetails.email || !userDetails.phoneNumber || !userDetails.password) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (userDetails.password.length < 6) {
+      alert("Password should be at least 6 characters long.");
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(userDetails.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(userDetails.phoneNumber)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+
+    try {
+      const user = await account.create(
+        ID.unique(),
+        userDetails.email,
+        userDetails.password,
+        userDetails.fullName
+      );
+
+      const rowData = {
+        fullName: userDetails.fullName,
+        email: userDetails.email,
+        phoneNumber: userDetails.phoneNumber
+      };
+
+      await tablesDB.createRow({
+        databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
+        tableId: import.meta.env.VITE_APPWRITE_USERS_TABLE_ID,
+        rowId: ID.unique(),
+        data: rowData
+      })
+
+      console.log("User registered successfully:", user);
+      setUserDetails({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        password: "",
+        confirmPassword: ""
+      });
+
+      navigate('/login');
+    }
+     catch (error) {
+      console.error("Registration error:", error);
+    }
+
+  }
+
   return (
     <div>
     <div className='relative h-140 mb-20'>
@@ -30,37 +122,72 @@ const registration = () => {
       <h2>Sign Up</h2>
       
       <div>
-        <form action="submit" className='flex flex-col gap-4 px-10 py-10'>
+        <form action="submit" className='flex flex-col gap-4 px-10 py-10' onSubmit={handleUserRegistration}>
+
         <div className='flex flex-col font-sans gap-3 justify-center items-start'>
         <label htmlFor="name">FullName</label>
-        <input type="text"  name='Name' className='px-2 w-full h-15 border border-gray-300'/>
+        <input 
+        type="text"  
+        name='fullName' 
+        onChange={handleChange}
+        value={userDetails.fullName}
+        className='px-2 w-full h-15 border border-gray-300'/>
         </div>
+        
         <div className='flex flex-col font-sans gap-3 justify-center items-start'>
         <label htmlFor="email">Email</label>
-        <input type="email" placeholder='Email' name="email" id="" className='px-2 w-full h-15 border border-gray-300'/>
+        <input 
+        type="email" 
+        placeholder='Email' 
+        onChange={handleChange}
+        name="email" 
+        value={userDetails.email}
+        className='px-2 w-full h-15 border border-gray-300'/>
         </div>
 
           <div className='flex flex-col gap-3 justify-center items-start'>
             <label htmlFor="role">Phone Number</label>
-            <input list='number' id='role' placeholder='123456899' className='px-2 w-full h-15 border border-gray-300'/>
-             
+            <input 
+            type='number' 
+            id='role'
+            name='phoneNumber'
+            onChange={handleChange}
+            value={userDetails.phoneNumber}
+            placeholder='123456899' 
+            className='px-2 w-full h-15 border border-gray-300'/>
           </div>
 
           <div className='flex flex-col font-sans gap-3 justify-center items-start'>
           <label htmlFor="password">Password</label>
-          <input type="password" placeholder='Password' name="password" id="" className='px-2 w-full h-15 border border-gray-300'/>
+          <input 
+          type="password" 
+          placeholder='' 
+          onChange={handleChange}
+          value={userDetails.password}
+          name="password" 
+          id="" 
+          className='px-2 w-full h-15 border border-gray-300'/>
           </div>
 
           <div className='flex flex-col font-sans gap-3 justify-center items-start'>
             <label htmlFor="confirm-password">Confirm Password</label>
-            <input type="password" placeholder='Confirm Password' name="confirm-password" id="" className='px-2 w-full h-15 border border-gray-300'/>
+            <input 
+            type="password" 
+            placeholder='Confirm Password' 
+            onChange={handleChange}
+            value={userDetails.confirmPassword}
+            name="confirmPassword" 
+            id="" 
+            className='px-2 w-full h-15 border border-gray-300'/>
           </div>
 
           <div className='flex gap-4'>
           <input type="checkbox" name="terms" id="" />
           <label htmlFor="terms">I agree to the terms and conditions</label>
           </div>
-          <button type='submit' className='border border-gray-300 w-full h-15 bg-green-600 font-bold'>Sign Up</button>
+          <button 
+          type='submit' 
+          className='border border-gray-300 w-full h-15 bg-green-600 font-bold'>Sign Up</button>
 
         </form>
       </div>
