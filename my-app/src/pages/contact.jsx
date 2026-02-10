@@ -57,11 +57,21 @@ const contact = () => {
                 <h4>Contact Information</h4>
                 <div>
                   <div className='flex items-center gap-3 mt-5 text-gray-700'>
-                  <div className='border p-5 flex justify-center items-center border-gray-200'>
-                    <MapPin size={20} className='inline-block text-green-600'/>
+                  <div className='border hover:bg-green-600 text-green-600 hover:text-white p-5 flex justify-center items-center border-gray-200'>
+                    <MapPin size={20} className='inline-block '/>
                   </div>
                   <div className='flex flex-col gap-3 justify-center items-start'>
-                  <p className='font-sans font-bold text-lg'>Medical Adress</p>
+                  <p className='font-sans font-bold text-sm'>Medical Adress</p>
+                  <span>1234 Street Name, City, State, 12345</span>
+                  </div>
+                  </div>
+
+                  <div className='flex items-center gap-3 mt-5 text-gray-700'>
+                  <div className='border hover:bg-green-600 hover:text-white text-green-600 p-5 flex justify-center items-center border-gray-200'>
+                    <MapPin size={20} className='inline-block'/>
+                  </div>
+                  <div className='flex flex-col gap-3 justify-center items-start'>
+                  <p className='font-sans font-bold text-sm'>Opening Hour</p>
                   <span>1234 Street Name, City, State, 12345</span>
                   </div>
                   </div>
@@ -71,7 +81,17 @@ const contact = () => {
                     <MapPin size={20} className='inline-block text-green-600'/>
                   </div>
                   <div className='flex flex-col gap-3 justify-center items-start'>
-                  <p className='font-sans font-bold text-lg'>Opening Hour</p>
+                  <p className='font-sans font-bold text-sm'>Opening Hour</p>
+                  <span>1234 Street Name, City, State, 12345</span>
+                  </div>
+                  </div>
+
+                  <div className='flex items-center gap-3 mt-5 text-gray-700'>
+                  <div className='border p-5 flex justify-center items-center border-gray-200'>
+                    <MapPin size={20} className='inline-block text-green-600'/>
+                  </div>
+                  <div className='flex flex-col gap-3 justify-center items-start'>
+                  <p className='font-sans font-bold text-sm'>Opening Hour</p>
                   <span>1234 Street Name, City, State, 12345</span>
                   </div>
                   </div>

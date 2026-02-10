@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { createRows } from '../utils/db'
+import { tablesDB, ID } from '../lib/appwrite'
+
 
 import { Mail, PhoneCall, Stethoscope, Calendar, UserRound, Notebook } from 'lucide-react'
 
@@ -7,6 +11,56 @@ import img3 from '../assets/img3.png'
 
 
 const appointment = () => {
+
+  const [appointmentDetails, setAppointmentDetails] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    department: "",
+    doctor: "",
+    appointmentDate: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAppointmentDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value
+    }));
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!appointmentDetails.fullName || !appointmentDetails.email || !appointmentDetails.phoneNumber || !appointmentDetails.department || !appointmentDetails.doctor || !appointmentDetails.appointmentDate) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    try {
+
+      const appointmentData = {
+        fullName: appointmentDetails.fullName,
+        email: appointmentDetails.email,
+        phoneNumber: appointmentDetails.phoneNumber,
+        department: appointmentDetails.department,
+        doctor: appointmentDetails.doctor,
+        $createdAt: appointmentDetails.appointmentDate,
+        message: appointmentDetails.message
+      }
+
+      await tablesDB.createRow({
+        databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
+        tableId: import.meta.env.VITE_APPWRITE_APPOINTMENTS_TABLE_ID,
+        rowId: ID.unique(),
+        data: appointmentData
+      })
+      console.log("Appointment booked successfully!");
+    } catch (error) {
+      console.error("Error booking appointment:", error);
+    }
+  }
   return (
     <div>
        <div className='relative h-120 mb-20'>
@@ -36,7 +90,7 @@ const appointment = () => {
             </div>
 
             <div>
-              <form action="submit">
+              <form action="submit" onSubmit={handleSubmit}>
 
               <div className='grid grid-cols-2 gap-6 items-start'>
 
@@ -45,8 +99,9 @@ const appointment = () => {
                   type="text" 
                   placeholder='Full Name'
                   name='fullName'
-                  // onChange={}
-                  // value={}
+                  onChange={handleChange}
+                  value={appointmentDetails.fullName}
+                  className='border-none w-full outline-none p-0 focus:ring-0 h-full text-lg'
                   />
                   <UserRound size={16} className="absolute right-3 text-gray-400" />
                 </div>
@@ -56,8 +111,9 @@ const appointment = () => {
                   type="text" 
                   placeholder='Email'
                   name='email'
-                  // onChange={}
-                  // value={}
+                  onChange={handleChange}
+                  value={appointmentDetails.email}
+                  className='border-none focus:ring-0 outline-none p-0 w-full h-full text-lg'
                   />
                   <Mail size={16} className="absolute right-3 text-gray-400" />
                 </div>
@@ -67,8 +123,9 @@ const appointment = () => {
                   type="text" 
                   placeholder='Phone Number'
                   name='phoneNumber'
-                  // onChange={}
-                  // value={}
+                  onChange={handleChange}
+                  value={appointmentDetails.phoneNumber}
+                  className='border-none w-full outline-none p-0 focus:ring-0 h-full text-lg'
                   />
                   <PhoneCall size={16} className="absolute right-3 text-gray-400" />
                 </div>
@@ -78,8 +135,9 @@ const appointment = () => {
                   type="text" 
                   placeholder='Department'
                   name='department'
-                  // onChange={}
-                  // value={}
+                  onChange={handleChange}
+                  value={appointmentDetails.department}
+                  className='border-none outline-none p-0 w-full focus:ring-0 h-full text-lg'
                   />
                   <Notebook size={16} className="absolute right-3 text-gray-400" />
                 </div>
@@ -89,9 +147,9 @@ const appointment = () => {
                   type="text" 
                   placeholder='Doctor'
                   name='doctor'
-                  // onChange={}
-                  // value={}
-                  className='border-none focus:ring-0'
+                  onChange={handleChange}
+                  value={appointmentDetails.doctor}
+                  className='border-none w-full outline-none p-0 focus:ring-0 h-full text-lg'
                   />
 
                   <Stethoscope size={16} className="absolute right-3 text-gray-400" />
@@ -102,8 +160,9 @@ const appointment = () => {
                   type="date" 
                   placeholder='dd/mm/yyyy'
                   name='appointmentDate'
-                  // onChange={}
-                  // value={}
+                  onChange={handleChange}
+                  value={appointmentDetails.appointmentDate}
+                  className='border-none w-full outline-none p-0 focus:ring-0 h-full text-lg'
                   />
                   {/* <Calendar size={16} className="absolute right-3 text-gray-400" /> */}
                 </div>
@@ -112,7 +171,13 @@ const appointment = () => {
               <div className='flex flex-col item-start gap-6'>
 
               <div>
-                <textarea name="message" id="" placeholder='Your Message' className='w-full h-50 mt-6 border border-gray-300 px-2 py-1 text-gray-600'>
+                <textarea 
+                name="message" 
+                id="" 
+                placeholder='Your Message' 
+                onChange={handleChange}
+                value={appointmentDetails.message}
+                className='w-full focus:ring-0 outline-none text-lg h-50 mt-6 border border-gray-300 px-2 py-1 text-gray-600'>
                 </textarea>
               </div>
 
