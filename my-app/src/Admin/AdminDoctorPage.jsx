@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+import DoctorFullList from './doctorFullList'
+
 const AdminDoctorPage = () => {
   return (
     <div>
@@ -14,7 +16,9 @@ const AdminDoctorPage = () => {
         </Link>
       </div>
 
-      <div></div>
+      <div>
+        <DoctorFullList />
+      </div>
     </div>
   )
 }

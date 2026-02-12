@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import UserDoctorList from './userDoctorList'
+
 import img3 from '../assets/img3.png'
 
 const doctorPage = () => {
   return (
-    <div>
+    <div className='min-h-screen'>
     <div className='relative h-120 mb-20'>
     <div className='absolute top-0 left-0 w-full h-full'>
       <img src={img3} alt="Doctor Team" className='object-cover w-full h-full'/>
@@ -21,9 +23,9 @@ const doctorPage = () => {
       </div>
     </div>
 
-        <section>
+        <section className=''>
           <div>
-            <div className='flex justify-center items-center flex-col gap-3 max-w-4xl mx-auto text-center px-4 mb-20'>
+            <div className='flex justify-center items-center flex-col gap-6 max-w-7xl mx-auto text-center px-4 mb-20'>
               <h1 className='text-4xl font-serif font-bold'>
                 Our Outstanding Team is available 24/7 to Provide You with the Best Medical Care
               </h1>
@@ -31,7 +33,8 @@ const doctorPage = () => {
                 Our dedicated team of healthcare professionals is committed to delivering exceptional medical care around the clock. With a focus on patient well-being and cutting-edge treatments, we ensure that you receive the highest quality care whenever you need it.
               </p>
 
-              <div className='grid grid-cols-3 gap-5'>
+              <div className='w-full mt-15'>
+                <UserDoctorList />
 
               </div>
             </div>

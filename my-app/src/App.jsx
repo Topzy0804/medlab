@@ -23,6 +23,8 @@ import AdminPharmacyPage from './Admin/adminPharmacyPage.jsx'
 import AdminBlogsPage from './Admin/adminBlogsPage.jsx'
 import AdminDashboard from './Admin/adminDashboard.jsx'
 import AddDoctorPage from './Admin/addDoctorPage.jsx'
+import DoctorDetails from './Admin/doctorDetails.jsx'
+import AddBlog from './Admin/addBlog.jsx'
 
 import { UserProvider } from './auth/userContext.jsx'
 import ProtectedRoute from './context/protectedRoute.jsx'
@@ -76,10 +78,12 @@ function App() {
                         <Route path="dashboard" element={<AdminDashboard />} />
                         <Route path="blogs" element={<AdminBlogsPage />} />
                         <Route path="doctors" element={<AdminDoctorPage />} />
+                        <Route path="doctors/:id" element={<DoctorDetails />} />
                         <Route path="patients" element={<AdminPatientPage />} />
                         <Route path="appointments" element={<AdminAppointmentPage />} />
                         <Route path="pharmacy" element={<AdminPharmacyPage />} />
                         <Route path="add-doctor" element={<AddDoctorPage />} />
+                        <Route path="add-blog" element={<AddBlog />} />
                       </Routes>
                     </main>
                   </div>

@@ -5,7 +5,7 @@ import { createRows } from '../utils/db'
 import { tablesDB, ID } from '../lib/appwrite'
 
 
-import { Mail, PhoneCall, Stethoscope, Calendar, UserRound, Notebook } from 'lucide-react'
+import { Mail, PhoneCall, Stethoscope, Calendar, UserRound, Notebook, User, VenusAndMars } from 'lucide-react'
 
 import img3 from '../assets/img3.png'
 
@@ -19,7 +19,9 @@ const appointment = () => {
     department: "",
     doctor: "",
     appointmentDate: "",
-    message: ""
+    message: "",
+    age: "",
+    gender: ""
   });
 
   const handleChange = (e) => {
@@ -47,7 +49,9 @@ const appointment = () => {
         department: appointmentDetails.department,
         doctor: appointmentDetails.doctor,
         $createdAt: appointmentDetails.appointmentDate,
-        message: appointmentDetails.message
+        message: appointmentDetails.message,
+        age: appointmentDetails.age,
+        gender: appointmentDetails.gender
       }
 
       await tablesDB.createRow({
@@ -116,6 +120,30 @@ const appointment = () => {
                   className='border-none focus:ring-0 outline-none p-0 w-full h-full text-lg'
                   />
                   <Mail size={16} className="absolute right-3 text-gray-400" />
+                </div>
+
+                <div className='border border-gray-300 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'>
+                  <input 
+                  type="number" 
+                  placeholder='Age'
+                  name='age'
+                  onChange={handleChange}
+                  value={appointmentDetails.age}
+                  className='border-none focus:ring-0 outline-none p-0 w-full h-full text-lg'
+                  />
+                  <User size={16} className="absolute right-3 text-gray-400" />
+                </div>
+
+                <div className='border border-gray-300 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'>
+                  <input 
+                  type="text" 
+                  placeholder='Gender'
+                  name='gender'
+                  onChange={handleChange}
+                  value={appointmentDetails.gender}
+                  className='border-none focus:ring-0 outline-none p-0 w-full h-full text-lg'
+                  />
+                  <VenusAndMars size={16} className="absolute right-3 text-gray-400" />
                 </div>
                 
                 <div className='border border-gray-300 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'>
