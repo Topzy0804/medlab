@@ -5,6 +5,7 @@ import img3 from '../assets/img3.png'
 import AboutImg from '../assets/about.png'
 import doctor1 from '../assets/doctor1.jpg'
 import com1 from '../assets/testi1.jpg'
+import UserDoctorList from './userDoctorList';
 
 
 
@@ -105,71 +106,9 @@ const aboutUs = () => {
                             <p className='font-sans text-sm text-gray-400 max-w-2xl text-center'>There are many variation of the passage of the Lorem ipsium available, but the majority have suffered alteration in some form.</p>
                           </div>
                   
-                          <div className='grid grid-cols-4 gap-10'>
-                            <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
-                            <div className='relative'>
-                              <img src={doctor1} alt="" className='relative'/>
-                              <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all'>
-                                <Facebook size={20} className=" mx-2"/>
-                                <Twitter size={20} className="mx-2"/>
-                                <Instagram size={20} className=" mx-2"/>
-                                <Linkedin size={20} className=" mx-2"/>
-                              </div>
-                            </div>
-                              <div className='flex flex-col gap-1'>
-                              <p className='font-sans text-sm text-green-400'>Cardiologist</p>
-                              <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
-                              </div>
-                            </div>
-                  
-                            <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
-                            <div className='relative'>
-                              <img src={doctor1} alt="" className='relative'/>
-                              <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all'>
-                                <Facebook size={20} className=" mx-2"/>
-                                <Twitter size={20} className="mx-2"/>
-                                <Instagram size={20} className=" mx-2"/>
-                                <Linkedin size={20} className=" mx-2"/>
-                              </div>
-                            </div>
-                              <div className='flex flex-col gap-1'>
-                              <p className='font-sans text-sm text-green-400'>Cardiologist</p>
-                              <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
-                              </div>
-                            </div>
-                  
-                            <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
-                            <div className='relative'>
-                              <img src={doctor1} alt="" className='relative'/>
-                              <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all'>
-                                <Facebook size={20} className=" mx-2"/>
-                                <Twitter size={20} className="mx-2"/>
-                                <Instagram size={20} className=" mx-2"/>
-                                <Linkedin size={20} className=" mx-2"/>
-                              </div>
-                            </div>
-                              <div className='flex flex-col gap-1'>
-                              <p className='font-sans text-sm text-green-400'>Cardiologist</p>
-                              <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
-                              </div>
-                            </div>
-                  
-                            <div className='group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5'>
-                            <div className='relative'>
-                              <img src={doctor1} alt="" className='relative'/>
-                              <div className='flex gap-2 px-14 py-5  bg-green-800 text-white absolute bottom-0 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-200 ease-in-out'>
-                                <Facebook size={20} className=" mx-2"/>
-                                <Twitter size={20} className="mx-2"/>
-                                <Instagram size={20} className=" mx-2"/>
-                                <Linkedin size={20} className=" mx-2"/>
-                              </div>
-                            </div>
-                              <div className='flex flex-col gap-1'>
-                              <p className='font-sans text-sm text-green-400'>Cardiologist</p>
-                              <h3 className='font-serif text-2xl text-green-800'>Dr Janet Dan</h3>
-                              </div>
-                            </div>
-                          </div>
+                          <div>
+        <UserDoctorList />
+        </div>
                         </div>
                       </section>
 

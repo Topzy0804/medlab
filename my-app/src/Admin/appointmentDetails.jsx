@@ -77,6 +77,9 @@ const AppointmentDetails = () => {
           <td className="px-6 py-4 text-sm text-gray-600">
             {appointment.doctor}
           </td>
+          <td className="px-6 py-4 text-sm text-gray-600" style={{ color: appointment.status === "completed" ? "green" : appointment.status === "cancelled" ? "red" : "blue" }}>
+            {appointment.status}
+          </td>
           <td>
 
             <Link to={`/admin/appointment-details/${appointment.$id}`}>

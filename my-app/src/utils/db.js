@@ -1,12 +1,11 @@
 import { tablesDB } from "../lib/appwrite";
 import { ID } from "appwrite";
 
-
 export const createRows = async (tableId, data, rowId = ID.unique()) => {
   const response = await tablesDB.createRow({
     databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
     tableId: tableId,
-    rowId: rowId, 
+    rowId: rowId,
     data: data,
   });
   return response;
@@ -26,6 +25,16 @@ export const getRow = async (tableId, rowId) => {
     databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
     tableId: tableId,
     rowId: rowId,
+  });
+  return response;
+};
+
+export const updateRow = async (tableId, rowId, data) => {
+  const response = await tablesDB.updateRow({
+    databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
+    tableId: tableId,
+    rowId: rowId,
+    data: data,
   });
   return response;
 };

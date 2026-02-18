@@ -21,9 +21,11 @@ const adminAppointmentPage = () => {
         </div>
       </div>
 
-      <div>
-        <span>Med</span><span>Lab</span>
-        <span>APPOINTMENT</span>
+      <div className="flex flex-col text-left">
+      <h1 className="font-serif text-xl font-bold text-gray-800 mb-4">
+        <span className="text-green-600">Med</span><span>Lab</span>
+      </h1>
+        <span className="text-xl font-sans text-gray-600">APPOINTMENT</span>
       </div>
 
       
@@ -41,6 +43,7 @@ const adminAppointmentPage = () => {
               <th className="px-4 py-3 text-sm font-semibold font-sans text-gray-700">Department</th>
               <th className="px-4 py-3 text-sm font-semibold font-sans text-gray-700">Date</th>
               <th className="px-4 py-3 text-sm font-semibold font-sans text-gray-700">Doctor</th>
+              <th className="px-4 py-3 text-sm font-semibold font-sans text-gray-700">Status</th>
             </tr>
           </thead>
 

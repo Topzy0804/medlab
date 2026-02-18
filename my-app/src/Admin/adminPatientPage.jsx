@@ -14,7 +14,7 @@ const adminPatientPage = () => {
               <th className="p-4 text-left font-sans font-semibold text-gray-700">Email</th>
               <th className="p-4 text-left font-sans font-semibold text-gray-700">Department</th>
               <th className="p-4 text-left font-sans font-semibold text-gray-700">Date</th>
-              <th className="p-4 text-left font-sans font-semibold text-gray-700">Action</th>
+              <th className="p-4 text-left font-sans font-semibold text-gray-700">Status</th>
             </tr>
           </thead>
 

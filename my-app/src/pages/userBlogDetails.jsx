@@ -67,6 +67,22 @@ const userBlogFullDetails = () => {
 
       <div>
         <textarea name="" id="" className="h-50 w-full border mt-10 p-6 rounded-xl"></textarea>
+        
+        <div className="flex flex-col gap-2 my-4">
+        <label htmlFor="name">Name</label>
+        <input 
+        type="text" 
+        placeholder="Your Name" 
+        className="w-full border p-3 rounded-xl" />
+        </div>
+
+        <div className="flex flex-col gap-2 my-4">
+          <label htmlFor="email">Email</label>
+          <input 
+          type="email" 
+          placeholder="Your Email" 
+          className="w-full border p-3 rounded-xl" />
+        </div>
         <button className="bg-green-600 text-white px-4 py-2 rounded-md mt-2">
           Submit Comment
         </button>
