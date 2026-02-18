@@ -13,6 +13,8 @@ import Contact from './pages/contact.jsx'
 import Appointment from './pages/appointment.jsx'
 // import TimeTable from './pages/timeTable.jsx'
 import Testimonials from './pages/testimonies.jsx'
+import Blog from './pages/blog.jsx'
+import UserBlogFullDetails from './pages/userBlogDetails.jsx'
 
 import Sidebar from './Admin/sidebar.jsx'
 import AdminNavbar from './Admin/adminNavbar.jsx'
@@ -25,6 +27,8 @@ import AdminDashboard from './Admin/adminDashboard.jsx'
 import AddDoctorPage from './Admin/addDoctorPage.jsx'
 import DoctorDetails from './Admin/doctorDetails.jsx'
 import AddBlog from './Admin/addBlog.jsx'
+import BlogFullDetails from './Admin/blogFullDetails.jsx'
+import AppointmentFullDetails from './Admin/appointmentFullDetails.jsx'
 
 import { UserProvider } from './auth/userContext.jsx'
 import ProtectedRoute from './context/protectedRoute.jsx'
@@ -59,6 +63,8 @@ function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/appointment" element={<Appointment />} />
                     <Route path="/testimonies" element={<Testimonials />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:id" element={<UserBlogFullDetails />} />
                   </Routes>
                   <Footer />
                 </>
@@ -84,6 +90,8 @@ function App() {
                         <Route path="pharmacy" element={<AdminPharmacyPage />} />
                         <Route path="add-doctor" element={<AddDoctorPage />} />
                         <Route path="add-blog" element={<AddBlog />} />
+                        <Route path="blog-details/:id" element={<BlogFullDetails />} />
+                        <Route path="appointment-details/:id" element={<AppointmentFullDetails />} />
                       </Routes>
                     </main>
                   </div>

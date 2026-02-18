@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { getRows } from "../utils/db";
 
@@ -77,9 +78,12 @@ const AppointmentDetails = () => {
             {appointment.doctor}
           </td>
           <td>
-            <button className="bg-green-600 border p-2 rounded-md text-white font-sans ">
-              View
-            </button>
+
+            <Link to={`/admin/appointment-details/${appointment.$id}`}>
+              <button className="bg-green-600 border p-2 rounded-md text-white font-sans ">
+                View Details
+              </button>
+            </Link>
           </td>
         </tr>
       ))}

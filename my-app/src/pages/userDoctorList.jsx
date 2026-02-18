@@ -32,7 +32,7 @@ const UserDoctorList = () => {
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {doctors.map((doctor, index) => (
+        {doctors.slice(0, 4).map((doctor, index) => (
           <div
             key={doctor.$id || index}
             className="group flex flex-col justify-center items-center gap-4 mt-10 border border-gray-100 bg-[#F9F9F9] transition-all pb-5 h-auto overflow-hidden rounded-md"

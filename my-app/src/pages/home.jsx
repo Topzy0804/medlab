@@ -1,9 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import UserDoctorList from './userDoctorList';
+import { getRows } from '../utils/db';
 
 import { User, Users, Mail, SquareCheckBig, Building2, NotebookTabs, Ambulance, Microscope, Hand, Hotel, Smile, Medal, PhoneCall, Heart, Syringe, BriefcaseMedical, Activity, Stethoscope, House, Quote, Facebook, Twitter, Instagram, Linkedin} from 'lucide-react';
 
@@ -31,6 +32,7 @@ import blog3 from '../assets/blog3.jpg'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { Link } from 'react-router-dom';
 
 const home = () => {
   const slides = [
@@ -144,6 +146,27 @@ const home = () => {
 
   const [activeDept, setActiveDept] = useState(deptData[0]);
 
+  const [blog, setBlog] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const data = await getRows(
+          import.meta.env.VITE_APPWRITE_BLOGS_TABLE_ID,
+        );
+        const rows = Array.isArray(data)
+          ? data
+          : data?.rows || data?.documents || [];
+        setBlog(rows);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  
+
   return (
     <div className='pt-28'>
     <section className='bg-[#F9F9F9] w-full'>
@@ -164,8 +187,12 @@ const home = () => {
                 since the first days of our practice, we have been dedicated to providing good heallthcare
               </p>
               <div className='flex gap-4'>
+              <Link to="/appointment" >
                 <button className='bg-[#064e3b] text-white px-8 py-3 rounded-sm font-semibold hover:bg-black transition-all'>Book Appointment</button>
+              </Link>
+              <Link to="/about-us" >
                 <button className='bg-[#a3e635] text-[#064e3b] px-8 py-3 rounded-sm font-semibold hover:bg-[#84cc16] transition all'>About us</button>
+              </Link>
               </div>
             </div>
 
@@ -229,8 +256,9 @@ const home = () => {
         </div>
 
         <div className='flex-1'>
-
+         <Link to="/appointment" >
           <button className='font-sans p-4 w-full h-12 border bg-green-600 text-white text-xs'>Get Appointment</button>
+         </Link>
         </div>
         
         
@@ -276,7 +304,9 @@ const home = () => {
           </li>
         </ul>
         </div>
+        <Link to="/about-us" >
         <p className='border bg-green-500 text-white font-sans text-sm h-10 w-40 justify-center items-center flex'>More About US</p>
+        </Link>
       </div>
     </div>
     </section>
@@ -613,45 +643,26 @@ const home = () => {
         </div>
 
         <div className='grid grid-cols-2 max-w-7xl mx-auto px-4 gap-10'>
+        {blog.slice(0, 4).map((item) => (
+         <Link to={`/blog/${item.$id}`} key={item.$id} >
+        
           <div className='flex gap-6 border border-gray-100 pr-3'>
-            <img src={blog1} alt="" className='max-w-2xs transition-transform duration-300 ease-in-out hover:scale-105'/>
+            <img src={item.imageUrl} alt="" className='max-w-2xs transition-transform duration-300 ease-in-out hover:scale-105'/>
             <div className='flex flex-col gap-4 justify-start items-start py-10'>
-              <h3 className='font-serif font-bold text-left'>These blood maker may higher risk of diseases</h3>
-              <p className='font-sans text-gray-500 text-xs text-left'>The price is something not defined as financial. it could be time</p>
+              <h3 className='font-serif font-bold text-left text-xl capitalize'>{item.title}</h3>
+              <p className='font-sans text-gray-500 text-sm text-left'>The price is something not defined as financial. it could be time</p>
               <div className='flex gap-3 justify-center items-center text-xs text-gray-400 text-left'>
-                <img src={comment} alt="" className='rounded-full w-10'/>
-                <span><p>Alice Williams</p></span>
-                <p>29 January, 2026</p>
+                <span><p className='text-sm font-sans'>{item.author}</p></span>
+                <p>{item.date}</p>
               </div>
             </div>
           </div>
+          </Link>
 
-          <div className='flex flex-col  row-span-2 '>
-            <img src={blog3} alt="" className='w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105'/>
-            <div className='flex flex-col bg-green-900 gap-7 text-white justify-start items-start py-10 px-5'>
-              <h3 className='font-serif font-bold text-lg text-left'>These blood maker may higher risk of diseases</h3>
-              <p className='font-sans font-bold text-sm text-left'>The price is something not defined as financial. it could be time</p>
-              <div className='flex gap-3 justify-center items-center text-xs text-gray-400 text-left'>
-                <img src={comment} alt="" className='rounded-full w-10'/>
-                <span><p>Alice Williams</p></span>
-                <p>29 January, 2026</p>
-              </div>
-            </div>
-          </div>
+            ))}
 
-          <div className='flex gap-6 border border-gray-100 pr-3'>
-            <img src={blog1} alt="" className='max-w-2xs transition-transform duration-300 ease-in-out hover:scale-105'/>
-            <div className='flex flex-col gap-4 justify-start items-start py-10'>
-              <h3 className='font-serif font-bold text-left'>These blood maker may higher risk of diseases</h3>
-              <p className='font-sans text-gray-500 text-xs text-left'>The price is something not defined as financial. it could be time</p>
-              <div className='flex gap-3 justify-center items-center text-xs text-gray-400 text-left'>
-                <img src={comment} alt="" className='rounded-full w-10'/>
-                <span><p>Alice Williams</p></span>
-                <p>29 January, 2026</p>
-              </div>
-            </div>
-          </div>
         </div>
+
       </div>
     </section>
       

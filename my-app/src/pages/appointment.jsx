@@ -21,7 +21,9 @@ const appointment = () => {
     appointmentDate: "",
     message: "",
     age: "",
-    gender: ""
+    gender: "",
+    date: new Date().toLocaleDateString(),
+    status: "pending"
   });
 
   const handleChange = (e) => {
@@ -51,7 +53,9 @@ const appointment = () => {
         $createdAt: appointmentDetails.appointmentDate,
         message: appointmentDetails.message,
         age: appointmentDetails.age,
-        gender: appointmentDetails.gender
+        gender: appointmentDetails.gender,
+        date: appointmentDetails.date,
+        status: appointmentDetails.status
       }
 
       await tablesDB.createRow({
@@ -189,7 +193,7 @@ const appointment = () => {
                   placeholder='dd/mm/yyyy'
                   name='appointmentDate'
                   onChange={handleChange}
-                  value={appointmentDetails.appointmentDate}
+                  value={appointmentDetails.date}
                   className='border-none w-full outline-none p-0 focus:ring-0 h-full text-lg'
                   />
                   {/* <Calendar size={16} className="absolute right-3 text-gray-400" /> */}
