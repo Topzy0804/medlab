@@ -34,7 +34,7 @@ const BlogDetails = () => {
   if (!blog.length) return <div>No blogs found.</div>;
 
   return (
-    <div className="grid grid-cols-4 gap-10 mx-10">
+    <div className="grid grid-cols-1 md:grid-cols-4 md:gap-10 gap-12 mx-10">
       {blog.map((blog, index) => (
         <Link key={blog.$id || index} to={`/admin/blog-details/${blog.$id}`}>
           <div className="shadow-sm border border-green-200 rounded-xl  relative group w-full h-full">

@@ -7,7 +7,7 @@ import DoctorFullList from './doctorFullList'
 const AdminDoctorPage = () => {
   return (
     <div>
-      <div className='flex justify-between items-center p-8'>
+      <div className='flex flex-col md:flex-row justify-between items-start md:items-center p-5 md:p-8'>
         <h1 className='font-bold font-serif text-2xl '>Doctors</h1>
         
 

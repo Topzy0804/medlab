@@ -57,7 +57,7 @@ const AppointmentFullDetails = () => {
   const currentStatus = (appointment.status || "").toString().toLowerCase();
 
   return (
-    <div className="p-8 bg-green-50 min-h-screen max-w-4xl mx-auto rounded-md">
+    <div className="md:p-8 p-5 bg-green-50 min-h-screen w-full md:max-w-4xl mx-auto rounded-md">
       <Link
         to="/admin/appointments"
         className="flex items-center gap-2 text-green-600 mb-8 hover:underline"
@@ -65,17 +65,18 @@ const AppointmentFullDetails = () => {
         <ArrowLeft className="w-4 h-4" /> Back to Appointments
       </Link>
       <div className="flex flex-col items-start justify-between mb-6">
-        <h1 className="text-4xl font-semibold font-serif text-gray-800">
+        <h1 className="md:text-4xl text-2xl font-semibold font-serif text-gray-800">
           Appointment Details
         </h1>
 
         <div>
-          <h3 className="text-2xl font-serif font-bold text-gray-800 capitalize text-left px-4 pt-3">
+          <h3 className="md:text-2xl text-xl font-serif font-bold text-gray-800 capitalize text-left px-4 pt-3">
+          <span className="text-green-600 font-serif">Patient Name:  </span>
             {appointment?.fullName}
           </h3>
 
           <div className="flex flex-col justify-center items-start capitalize gap-4 mt-4 bg-green-50 p-4 rounded-md">
-            <h1 className="text-3xl font-serif font-bold">patient Details</h1>
+            <h1 className="md:text-3xl text-2xl font-serif font-bold">patient Details</h1>
 
             <div className="flex flex-col justify-center items-start font-sans gap-2 text-gray-700 text-lg">
               <p>
@@ -92,7 +93,7 @@ const AppointmentFullDetails = () => {
           </div>
 
           <div className="flex flex-col justify-center items-start capitalize gap-4 mt-4 bg-green-50 p-4 rounded-md">
-            <h1 className="text-3xl font-serif font-bold">medical details</h1>
+            <h1 className="md:text-3xl text-2xl font-serif font-bold">medical details</h1>
             <p className="flex items-center gap-2 font-sans text-gray-700 text-lg">
               department: <span>{appointment.department}</span>
             </p>
@@ -102,7 +103,7 @@ const AppointmentFullDetails = () => {
             <p className="flex items-center gap-2 font-sans text-gray-700 text-lg">
               date: <span>{appointment.date}</span>
             </p>
-            <p className="flex items-center gap-2 font-sans text-gray-700 text-lg">
+            <p className="flex justify-start items-start text-left md:items-center gap-2 font-sans text-gray-700 text-lg">
               message: <span>{appointment.message}</span>
             </p>
           </div>

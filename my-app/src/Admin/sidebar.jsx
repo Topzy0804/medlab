@@ -5,7 +5,6 @@ import { LayoutDashboard, User, Calendar, Stethoscope, ShoppingCart, FileText } 
 const Sidebar = ({ isOpen }) => {
   return (
     <div className={`flex flex-col h-screen bg-white border-r border-gray-200 transition-all duration-300 ease-in-out ${isOpen ? 'w-72' : 'w-0 overflow-hidden'}`}>
-      {/* Sidebar Header / Logo */}
       <div className='p-6 min-w-[288px]'> 
           <h1 className='font-bold text-4xl text-green-800'>
           <span className="bg-green-700 text-white p-1 rounded">+</span>Med<span className='text-black'>Lab</span>
@@ -18,7 +17,6 @@ const Sidebar = ({ isOpen }) => {
           <SidebarLink to="/admin/appointments" icon={<Stethoscope size={22}/>} label="Appointment" />
           <SidebarLink to="/admin/doctors" icon={<User size={22}/>} label="Doctors" />
           <SidebarLink to="/admin/patients" icon={<User size={22}/>} label="Patients" />
-          <SidebarLink to="/admin/pharmacy" icon={<ShoppingCart size={22}/>} label="Pharmacy" />
           <SidebarLink to="/admin/blogs" icon={<FileText size={22}/>} label="Blogs" />
         </ul>
       </nav>

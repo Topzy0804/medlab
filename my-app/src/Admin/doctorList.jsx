@@ -51,10 +51,10 @@ const DoctorList = () => {
           </div>
 
           <div className="flex flex-col ml-4 text-start items-start justify-start gap-2">
-            <h1 className="text-2xl font-serif font-bold text-gray-900">
+            <h1 className="md:text-2xl text-xl font-serif font-bold text-gray-900">
               {doctor.FirstName} {doctor.LastName}
             </h1>
-            <p className="text-lg font-sans text-gray-600">{doctor.Department || doctor.department}</p>
+            <p className="md:text-lg text-md font-sans text-gray-600">{doctor.Department || doctor.department}</p>
           </div>
         </div>
       ))}

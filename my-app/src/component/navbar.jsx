@@ -152,29 +152,29 @@ const Navbar = () => {
 
             <div className="pl-6 space-y-1 text-left">
 
-               <li className="px-4 py-2 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
+               <li className="px-4 py-2 list-none hover:bg-green-500 hover:text-white text-gray-600 text-sm">
 
                 <Link to="/about-us">About Us</Link></li>
 
-                <li className="px-4 py-2 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
+                <li className="px-4 py-2 list-none hover:bg-green-500 hover:text-white text-gray-600 text-sm">
 
                 <Link to="/appointment">Appointment</Link></li>
 
-                <li className="px-4 py-2 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
+                <li className="px-4 py-2 list-none hover:bg-green-500 hover:text-white text-gray-600 text-sm">
 
                 <Link to="/time-table">Time Table</Link></li>
 
-                <li className="px-4 py-2 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
+                <li className="px-4 py-2 list-none hover:bg-green-500 hover:text-white text-gray-600 text-sm">
 
                 <Link to="/testimonies">Testimonials</Link></li>
 
                
 
-                <li className="px-4 py-3 hover:bg-green-500 hover:text-white text-gray-600 text-sm">
+                <li className="px-4 py-3 list-none hover:bg-green-500 hover:text-white text-gray-600 text-sm">
 
                 <Link to="/registration">Sign Up</Link></li>
 
-                <li className="px-4 py-3 hover:bg-green-500 hover:text-white  text-gray-600 text-sm">
+                <li className="px-4 py-3 list-none hover:bg-green-500 hover:text-white  text-gray-600 text-sm">
 
                 <Link to="/login">Login</Link></li>
 

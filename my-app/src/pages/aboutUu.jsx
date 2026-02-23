@@ -1,178 +1,135 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { SquareCheckBig, Hotel, Stethoscope, Smile, Medal, Quote } from 'lucide-react'
 
 import img3 from '../assets/img3.png'
 import AboutImg from '../assets/about.png'
-import doctor1 from '../assets/doctor1.jpg'
 import com1 from '../assets/testi1.jpg'
 import UserDoctorList from './userDoctorList';
 
-
-
-import { SquareCheckBig,Hotel, Stethoscope, Smile, Medal, Instagram, Linkedin, Twitter, Facebook, Quote } from 'lucide-react'
-
-
-const aboutUs = () => {
+const AboutUs = () => {
   return (
-    <div>
-       <div className='relative h-120 mb-20'>
-          <div className='absolute top-0 left-0 w-full h-full'>
-            <img src={img3} alt="Doctor Team" className='object-cover w-full h-full'/>
-          </div>
-      
-            <div className='absolute bg-green-900/90  opacity-100 h-full w-full top-0 left-0 flex flex-col justify-center items-center gap-4'>
-              <h1 className='font-serif text-4xl font-bold text-white'>About Us</h1>
-              <div className='flex gap-2 text-white font-sans'>
-                <p><Link to="/">Home</Link></p>
-                <span> - </span>
-                <p>About Us</p>
-              </div>
-            </div>
-          </div>
-
-           <section className=' bg-[#F9F9F9]'>
-              <div className='grid grid-cols-2 px-15 py-25 max-w-7xl mx-auto gap-15'>
-                <div>
-                <img 
-                src={AboutImg} 
-                alt="" 
-                className='w-full object-cover'
-                />
-          
-                </div>
-                <div className='flex flex-col gap-10'>
-                  <p className='border h-7 w-17 text-white bg-green-400 font-sans text-sm flex justify-center items-center rounded-sm'>About</p>
-                  <h2 className='font-serif text-left text-4xl'>Thousands of specialist for all your healthcare needs</h2>
-                  <p className='font-sans text-left text-gray-500 text-sm'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat.</p>
-                  <div>
-                  <ul className='grid grid-cols-2 gap-4'>
-                    <li className='flex gap-3 items-center'>
-                      <SquareCheckBig className='text-green-300' size={20}/> Conduct Eye health checkup
-                    </li>
-                    <li className='flex gap-3 items-center'>
-                      <SquareCheckBig className='text-green-300' size={20}/> Best lasic treatment
-                    </li>
-                    <li className='flex gap-3 items-center'>
-                      <SquareCheckBig className='text-green-300' size={20}/> Treat minor illnesses 
-                    </li>
-                    <li className='flex gap-3 items-center'>
-                      <SquareCheckBig className='text-green-300' size={20}/> Special Eye exams
-                    </li>
-                    <li className='flex gap-3 items-center'>
-                      <SquareCheckBig className='text-green-300' size={20}/> Contact lens services
-                    </li>
-                    <li className='flex gap-3 items-center'>
-                      <SquareCheckBig className='text-green-300' size={20}/> Special Retinal exams
-                    </li>
-                  </ul>
-                  </div>
-                  <p className='border bg-green-500 text-white font-sans text-sm h-10 w-40 justify-center items-center flex'>More About US</p>
-                </div>
-              </div>
-              </section>
-
-              <section className=' bg-green-800 mb-15'>
-                  <div className='grid grid-cols-4 border border-green-800 py-30 px-25 max-w-7xl mx-auto gap-10'>
-                    <div className='flex flex-col gap-3 justify-center items-center'>
-                      <Hotel size={20} className="text-green-600 border h-20 w-20 bg-white p-6"/>
-                      <h4 className='font-serif text-3xl font-semibold text-white'>400</h4>
-                      <p className='font-sans font-semibold text-white'>Hospital Rooms</p>
-                    </div>
-              
-                    <div className='flex flex-col gap-3 justify-center items-center'>
-                      <Stethoscope size={20} className="text-green-600 border h-20 w-20 bg-white p-6"/>
-                      <h4 className='font-serif text-3xl font-semibold text-white'>150</h4>
-                      <p className='font-sans font-semibold text-white'>Special Doctors</p>
-                    </div>
-              
-                    <div className='flex flex-col gap-3 justify-center items-center'>
-                      <Smile size={20} className="text-green-600 border h-20 w-20 bg-white p-6"/>
-                      <h4 className='font-serif text-3xl font-semibold text-white'>600</h4>
-                      <p className='font-sans font-semibold text-white'>Happy Patients</p>
-                    </div>
-              
-                    <div className='flex flex-col gap-3 justify-center items-center'>
-                      <Medal size={20} className="text-green-600 border h-20 w-20 bg-white p-6"/>
-                      <h4 className='font-serif text-3xl font-semibold text-white'>20</h4>
-                      <p className='font-sans font-semibold text-white'>Years of Experience</p>
-                    </div>
-                  </div>
-                  </section>
-
-                   <section>
-                        <div className='max-w-7xl mx-auto py-25 px-4'>
-                          <div className='flex flex-col gap-5 justify-center items-center'>
-                            <h1 className='font-serif text-4xl font-bold'>Our Outstanding Team is Active To Help You</h1>
-                            <p className='font-sans text-sm text-gray-400 max-w-2xl text-center'>There are many variation of the passage of the Lorem ipsium available, but the majority have suffered alteration in some form.</p>
-                          </div>
-                  
-                          <div>
-        <UserDoctorList />
+    <div className="overflow-x-hidden">
+      <div className='relative h-[300px] md:h-120 mb-10 md:mb-20'>
+        <div className='absolute top-0 left-0 w-full h-full'>
+          <img src={img3} alt="Doctor Team" className='object-cover w-full h-full'/>
         </div>
-                        </div>
-                      </section>
+        <div className='absolute bg-green-900/90 h-full w-full top-0 left-0 flex flex-col justify-center items-center gap-4 px-4'>
+          <h1 className='font-serif text-3xl md:text-5xl font-bold text-white text-center'>About Us</h1>
+          <div className='flex gap-2 text-white font-sans text-sm md:text-base'>
+            <Link to="/" className="hover:text-green-400">Home</Link>
+            <span> - </span>
+            <p>About Us</p>
+          </div>
+        </div>
+      </div>
 
-                       <section className='bg-green-900 relative py-25'>
-                       <h1 className="text-white opacity-10 font-serif absolute text-center text-7xl font-bold top-15 w-full">TESTIMONIES</h1>
-                            <div className='mb-30  px-4'>
-                              <div className='flex flex-col gap-4 justify-center items-center'>
-                                <h1 className="font-serif text-4xl max-w-2xl font-bold text-white">What People Say</h1>
-                                <p className="font-sans text-sm max-w-2xl text-white">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                              </div>
-                      
-                              <div className='max-w-7xl mx-auto mt-20 px-4 grid grid-cols-1 md:grid-cols-3 gap-10'>
-                                <div className='relative group'>
-                                <div className='flex flex-col gap-6 bg-green-900 group-hover:bg-white group-hover:text-green-900 text-white py-15 px-10 rounded-sm h-full justify-center items-center border border-gray-50'>
-                                <div className='text-white group-hover:text-green-300'>
-                                  <Quote size={30}/>
-                                </div>
-                                  <p>it amazing how much easier it has been to meet new people and connect with others who share my interests.</p>
-                                </div>
-                                <div className='flex flex-col gap-3 absolute top-52 left-35 justify-center items-center'>
-                                  <img src={com1} alt="" className='rounded-full w-[70px] group-hover:border-5 group-hover:border-green-600'/>
-                                  <h3 className='font-serif text-2xl text-white'>John Doe</h3>
-                                  <p className='font-sans text-sm text-white'>Patient</p>
-                                </div>
-                      
-                                </div>
-                      
-                                 <div className='relative group'>
-                                <div className='flex flex-col gap-6 bg-green-900 group-hover:bg-white group-hover:text-green-900 text-white py-15 px-10 rounded-sm h-full justify-center items-center border border-gray-50'>
-                                <div className='text-white group-hover:text-green-300'>
-                                  <Quote size={30}/>
-                                </div>
-                                  <p>it amazing how much easier it has been to meet new people and connect with others who share my interests.</p>
-                                </div>
-                                <div className='flex flex-col gap-3 absolute top-52 left-35 justify-center items-center'>
-                                  <img src={com1} alt="" className='rounded-full w-[70px] group-hover:border-5 group-hover:border-green-600'/>
-                                  <h3 className='font-serif text-2xl text-white'>John Doe</h3>
-                                  <p className='font-sans text-sm text-white'>Patient</p>
-                                </div>
-                      
-                                </div>
-                          
-                      
-                                 <div className='relative group'>
-                                <div className='flex flex-col gap-6 bg-green-900 group-hover:bg-white group-hover:text-green-900 text-white py-15 px-10 rounded-sm h-full justify-center items-center border border-gray-50'>
-                                <div className='text-white group-hover:text-green-300'>
-                                  <Quote size={30}/>
-                                </div>
-                                  <p>it amazing how much easier it has been to meet new people and connect with others who share my interests.</p>
-                                </div>
-                                <div className='flex flex-col gap-3 absolute top-52 left-35 justify-center items-center'>
-                                  <img src={com1} alt="" className='rounded-full w-[70px] group-hover:border-5 group-hover:border-green-600'/>
-                                  <h3 className='font-serif text-2xl text-white'>John Doe</h3>
-                                  <p className='font-sans text-sm text-white'>Patient</p>
-                                </div>
-                      
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                      
+      <section className='bg-[#F9F9F9]'>
+        <div className='grid grid-cols-1 md:grid-cols-2 px-6 py-12 md:px-15 md:py-25 max-w-7xl mx-auto gap-10 md:gap-15 items-center'>
+          <div className='order-2 md:order-1'>
+            <img src={AboutImg} alt="Clinic" className='w-full object-cover rounded-lg shadow-md'/>
+          </div>
           
+          <div className='flex flex-col gap-6 md:gap-8 order-1 md:order-2'>
+            <p className='inline-block w-fit px-4 py-1 text-white bg-green-400 font-sans text-xs font-bold rounded-sm uppercase tracking-wider'>
+              About
+            </p>
+            <h2 className='font-serif text-2xl md:text-4xl leading-tight'>
+              Thousands of specialists for all your healthcare needs
+            </h2>
+            <p className='font-sans text-gray-500 text-sm md:text-base'>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            
+            <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4'>
+              {[
+                "Conduct Eye health checkup", "Best lasic treatment", 
+                "Treat minor illnesses", "Special Eye exams",
+                "Contact lens services", "Special Retinal exams"
+              ].map((item, index) => (
+                <li key={index} className='flex gap-3 items-center text-sm md:text-base'>
+                  <SquareCheckBig className='text-green-500 shrink-0' size={18}/> {item}
+                </li>
+              ))}
+            </ul>
+            
+            <button className='bg-green-500 text-white font-sans text-sm font-bold h-12 w-44 hover:bg-green-600 transition-colors'>
+              More About US
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className='bg-green-800 py-12 md:py-20'>
+        <div className='grid grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto gap-8 px-6'>
+          {[
+            { icon: <Hotel />, count: "400", label: "Hospital Rooms" },
+            { icon: <Stethoscope />, count: "150", label: "Special Doctors" },
+            { icon: <Smile />, count: "600", label: "Happy Patients" },
+            { icon: <Medal />, count: "20", label: "Years Experience" }
+          ].map((stat, i) => (
+            <div key={i} className='flex flex-col gap-3 justify-center items-center text-center'>
+              <div className="text-green-600 bg-white p-4 md:p-6 rounded-sm shadow-sm">
+                {React.cloneElement(stat.icon, { size: 28 })}
+              </div>
+              <h4 className='font-serif text-2xl md:text-3xl font-semibold text-white'>{stat.count}</h4>
+              <p className='font-sans text-xs md:text-sm font-medium text-green-100 uppercase tracking-wide'>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className='py-16 md:py-25'>
+        <div className='max-w-7xl mx-auto px-6 text-center'>
+          <h2 className='font-serif text-3xl md:text-4xl font-bold mb-4'>Our Outstanding Team</h2>
+          <p className='font-sans text-sm text-gray-400 max-w-2xl mx-auto mb-12'>
+            There are many variations of the passage of the Lorem Ipsum available, but the majority have suffered alteration.
+          </p>
+          <UserDoctorList />
+        </div>
+      </section>
+
+      <section className='bg-green-900 relative py-20 md:py-25 overflow-hidden'>
+        <h1 className="text-white opacity-5 font-serif absolute text-center text-5xl md:text-8xl font-bold top-10 w-full pointer-events-none">
+          TESTIMONIES
+        </h1>
+        
+        <div className='max-w-7xl mx-auto px-6 relative z-10'>
+          <div className='text-center mb-16 md:mb-20'>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">What People Say</h2>
+            <p className="font-sans text-sm text-green-100 max-w-xl mx-auto">
+              Real stories from our patients who have experienced our professional healthcare services.
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10'>
+            {[1, 2, 3].map((_, i) => (
+              <div key={i} className='relative group pt-10'>
+                <div className='flex flex-col gap-6 bg-green-800 group-hover:bg-white transition-all duration-300 group-hover:text-green-900 text-white py-12 px-8 rounded-lg border border-green-700/50 shadow-xl'>
+                  <Quote size={40} className="text-green-400/30 group-hover:text-green-500 mx-auto" />
+                  <p className="text-center italic text-sm md:text-base leading-relaxed">
+                    "It's amazing how much easier it has been to meet new people and connect with others who share my interests."
+                  </p>
+                </div>
+                
+                <div className='absolute -bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center w-full'>
+                  <img 
+                    src={com1} 
+                    alt="Patient" 
+                    className='rounded-full w-16 h-16 md:w-20 md:h-20 object-cover border-4 border-green-900 group-hover:border-green-600 transition-all shadow-lg'
+                  />
+                  <div className="text-center mt-2">
+                    <h3 className='font-serif text-lg md:text-xl text-white'>John Doe</h3>
+                    <p className='font-sans text-xs text-green-300 uppercase'>Patient</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
 
-export default aboutUs
+export default AboutUs

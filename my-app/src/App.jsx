@@ -75,6 +75,7 @@ function App() {
             <Route
               path="/admin/*"
               element={
+                <ProtectedRoute adminOnly={true}>
                 <div className="admin-layout">
                   <AdminNavbar onToggle={toggleAdminSidebar} />
                   <div className="admin-container" style={{ display: 'flex' }}>
@@ -96,6 +97,7 @@ function App() {
                     </main>
                   </div>
                 </div>
+                </ProtectedRoute>
               }
             />
           </Routes>

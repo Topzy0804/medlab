@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getRows } from "../utils/db";
 import { Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 
+
 import { Link } from "react-router-dom";
 
 const DoctorFullList = () => {
@@ -31,7 +32,8 @@ const DoctorFullList = () => {
   if (!doctors.length) return <div>No doctors found.</div>;
 
   return (
-    <div className="grid grid-cols-5 gap-10">
+    <div className="grid md:grid-cols-5 grid-cols-2 gap-10 p-5 md:p-8">
+    
       {doctors.map((doctor, index) => (
         <div
           key={doctor.$id || index}
@@ -45,7 +47,7 @@ const DoctorFullList = () => {
                   ? `${doctor.FirstName || ""} ${doctor.LastName || ""}`.trim()
                   : "Doctor"
               }
-              className="w-full h-70 object-cover rounded-md"
+              className="w-full md:h-72 h-56 object-cover rounded-md"
             />
             <div className="group-hover:bg-green-600 flex flex-col gap-3 justify-center items-center group-hover:text-white py-3">
               <h1>

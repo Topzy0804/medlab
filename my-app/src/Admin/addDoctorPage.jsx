@@ -79,35 +79,35 @@ const AddDoctorPage = () => {
 
 
   return (
-    <div className='p-8 bg-green-50 min-h-screen '>
-    <div className='mb-8 flex justify-start items-center gap-3'>
-      <h1 className='font-serif text-2xl font-bold'>Add Doctor</h1>
+    <div className='md:p-8 p-5 bg-green-50 min-h-screen '>
+    <div className='mb-8 flex flex-col md:flex-row items-start justify-start md:items-center gap-3'>
+      <h1 className='font-serif text-xl md:text-2xl font-bold'>Add Doctor</h1>
     </div>
 
-    <div className='grid grid-cols-3 gap-20 bg-green-50 min-h-screen '>
+    <div className='grid grid-cols-1 md:grid-cols-3 md:gap-20 gap-12 bg-green-50 min-h-screen '>
 
-    <div className='col-span-2 p-8 bg-white min-h-screen shadow-sm border border-green-200 '>
+    <div className='md:col-span-2 p-5 md:p-8 bg-white min-h-screen shadow-sm border border-green-200 '>
       <form action="submit" onSubmit={handleSubmit}>
-        <div className='flex justify-between items-center '>
-          <label htmlFor="image" className='text-lg'>Upload Image</label>
+        <div className='flex flex-col md:flex-row items-start justify-between md:items-center'>
+          <label htmlFor="image" className='text-md md:text-lg'>Upload Image</label>
           <input 
           type="file" 
           id="image" 
           name="Image" 
           onChange={handleImageChange}
           accept='image/*'
-          className='border border-green-200 font-sans rounded-xl  px-2 py-2 w-45 bg-green-600 text-white  h-15 flex items-center justify-center text-lg'
+          className='border border-green-200 font-sans rounded-xl  px-2 py-2 w-32 md:w-48 bg-green-600 text-white  h-15 flex flex-col md:flex-row items-center justify-center md:text-lg text-md'
            />
         </div>
 
         {preview &&  (
-          <div className='w-25 h-25 mt-4'>
+          <div className='w-24 h-24 mt-4'>
             <img src={preview} alt="Preview" className='w-full h-full object-cover rounded-full' />
           </div>
         )}
 
-        <div className='grid grid-cols-2 gap-6 py-5 font-sans'>
-          <div className='text-left flex flex-col gap-2'>
+        <div className='grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-8 md:py-5 py-3 font-sans'>
+          <div className='text-left gap-2'>
             <label htmlFor="FirstName" className='text-lg'>First Name</label>
             <input 
             type="text"
@@ -115,7 +115,7 @@ const AddDoctorPage = () => {
             name="FirstName"
             onChange={handleOnchange}
             value={doctorDetails.FirstName}
-            className='border border-green-200 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'
+            className='border border-green-200 text-gray-600 w-full p-3 items-center justify-between relative'
              />
           </div>
 
@@ -127,7 +127,7 @@ const AddDoctorPage = () => {
             name="LastName"
             onChange={handleOnchange}
             value={doctorDetails.LastName}
-            className='border border-green-200 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'
+            className='border border-green-200 text-gray-600 w-full p-3 flex flex-col md:flex-row items-center justify-between relative'
              />
           </div>
 
@@ -139,7 +139,7 @@ const AddDoctorPage = () => {
             name="Email"
             onChange={handleOnchange}
             value={doctorDetails.Email}
-            className='border border-green-200 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'
+            className='border border-green-200 text-gray-600 w-full p-3 flex flex-col md:flex-row items-center justify-between relative'
              />
           </div>
 
@@ -151,7 +151,7 @@ const AddDoctorPage = () => {
             name="PhoneNumber"
             onChange={handleOnchange}
             value={doctorDetails.PhoneNumber}
-            className='border border-green-200 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'
+            className='border border-green-200 text-gray-600 w-full p-3 flex flex-col md:flex-row items-center justify-between relative'
              />
           </div>
 
@@ -162,7 +162,7 @@ const AddDoctorPage = () => {
             id=""
             onChange={handleOnchange}
             value={doctorDetails.Department}
-            className='border border-green-200 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'
+            className='border border-green-200 text-gray-600 w-full p-3 flex flex-col md:flex-row items-center justify-between relative'
             >
               <option value="department">Department</option>
               <option value="General Physician">General Physician</option>
@@ -178,7 +178,7 @@ const AddDoctorPage = () => {
             id=""
             onChange={handleOnchange}
             value={doctorDetails.Gender}
-            className='border border-green-200 text-gray-600 px-2 py-1 w-full h-15 flex items-center justify-between relative'
+            className='border border-green-200 text-gray-600 w-full p-3 flex flex-col md:flex-row items-center justify-between relative'
             >
               <option value="gender">Gender</option>
               <option value="Male">Male</option>
@@ -198,7 +198,7 @@ const AddDoctorPage = () => {
               name="facebookLink"
               onChange={handleOnchange}
               value={doctorDetails.facebookLink}
-              className='border border-green-200 text-gray-600 pl-20 py-1 w-full h-15 flex items-center justify-between relative'
+              className='border border-green-200 text-gray-600 pl-20 py-1 w-full p-3 flex items-center justify-between relative'
             />
           </div>
 
@@ -213,7 +213,7 @@ const AddDoctorPage = () => {
               name="instagramLink"
               onChange={handleOnchange}
               value={doctorDetails.instagramLink}
-              className='border border-green-200 text-gray-600 pl-20 py-1 w-full h-15 flex items-center justify-between relative'
+              className='border border-green-200 text-gray-600 pl-20 py-1 w-full p-3 flex items-center justify-between relative'
             />
           </div>
 
@@ -228,7 +228,7 @@ const AddDoctorPage = () => {
               name="linkedInLink"
               onChange={handleOnchange}
               value={doctorDetails.linkedInLink}
-              className='border border-green-200 text-gray-600 pl-20 py-1 w-full h-15 flex items-center justify-between relative'
+              className='border border-green-200 text-gray-600 pl-20 py-1 w-full p-3 flex items-center justify-between relative'
             />
           </div>
 
@@ -243,11 +243,11 @@ const AddDoctorPage = () => {
               name="twitterLink"
               onChange={handleOnchange}
               value={doctorDetails.twitterLink}
-              className='border border-green-200 text-gray-600 pl-20 py-1 w-full h-15 flex items-center justify-between relative'
+              className='border border-green-200 text-gray-600 pl-20 py-1 w-full p-3 flex items-center justify-between relative'
             />
           </div>
 
-          <div className='col-span-2 row-span-4 text-left flex flex-col gap-2'>
+          <div className='md:col-span-2 row-span-4 text-left flex flex-col gap-2'>
           <label htmlFor="bio" className=' text-lg'>Bio</label>
             <textarea 
             name="bio" 
@@ -259,7 +259,7 @@ const AddDoctorPage = () => {
           </div>
 
           <div className='flex justify-start mt-6'>
-            <button type="submit" className='w-40 h-15 bg-green-600 text-lg font-sans rounded-md font-bold text-white'>Add Doctor</button>
+            <button type="submit" className='md:w-48 w-full h-15 bg-green-600 text-lg font-sans rounded-md font-bold text-white'>Add Doctor</button>
           </div>
 
         </div>
@@ -268,7 +268,7 @@ const AddDoctorPage = () => {
 
 
     <div className='bg-white shadow-sm border border-green-200 p-8 min-h-screen '>
-      <h1>Doctor List</h1>
+      <h1 className='text-2xl font-bold text-green-700 font-serif'>Doctor List</h1>
 
       <div className=''>
         <DoctorList />

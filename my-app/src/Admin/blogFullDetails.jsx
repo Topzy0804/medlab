@@ -44,7 +44,7 @@ const BlogFullDetails = () => {
         <ArrowLeft className="w-4 h-4" /> Back to Blogs
       </Link>
 
-      <h1 className="text-4xl font-bold mb-4 capitalize font-serif">{blog.title}</h1>
+      <h1 className="md:text-4xl text-2xl font-bold mb-4 capitalize font-serif">{blog.title}</h1>
 
       <div className="flex gap-6 mb-8 text-gray-500 font-sans">
         <p className="flex items-center gap-2">
@@ -58,7 +58,7 @@ const BlogFullDetails = () => {
       <img
         src={blog.imageUrl}
         alt={blog.title}
-        className="w-full h-[400px] object-cover rounded-2xl mb-10"
+        className="w-full md:h-[400px] h-72 object-cover rounded-2xl mb-10"
       />
 
       <div className="prose prose-lg max-w-none text-gray-800 leading-relaxed font-sans">

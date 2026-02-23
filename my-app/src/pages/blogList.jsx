@@ -34,7 +34,7 @@ const BlogList = () => {
   if (!blog.length) return <div>No blogs found.</div>;
 
   return (
-    <div className="grid grid-cols-3 gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       {blog.map((blog, index) => (
         <Link key={blog.$id || index} to={`/blog/${blog.$id}`}>
           <div className="shadow-sm border border-green-200 rounded-xl  relative group w-full h-full">
@@ -42,7 +42,7 @@ const BlogList = () => {
               <img
                 src={blog.imageUrl || blog.image || "/fallback.png"}
                 alt={blog.title}
-                className="w-full h-70 object-cover rounded-md"
+                className="w-full md:h-72 h-56 object-cover rounded-md"
               />
             </div>
 
@@ -55,7 +55,7 @@ const BlogList = () => {
                 <Clock className="w-4 h-4" />
                 <span>{blog.timeToRead}</span>
               </p>
-              <h3 className="text-2xl font-bold mt-2 ">{blog.title}</h3>
+              <h3 className="text-2xl font-bold mt-2 capitalize">{blog.title}</h3>
             </div>
           </div>
         </Link>

@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { account, ID, tablesDB} from '../lib/appwrite'
-import { createRows } from '../utils/db'
 
 import { Facebook, Linkedin, Mail, Instagram } from 'lucide-react'
 
@@ -54,7 +53,7 @@ const registration = () => {
       return;
     }
 
-    if (!/^\d{10}$/.test(userDetails.phoneNumber)) {
+    if (!/^\d{11}$/.test(userDetails.phoneNumber)) {
       alert("Please enter a valid 10-digit phone number.");
       return;
     }
@@ -100,7 +99,7 @@ const registration = () => {
 
   return (
     <div>
-    <div className='relative h-140 mb-20'>
+    <div className='relative md:h-140 mb-20'>
       <div className='w-full h-full overflow-hidden'>
         <img src={imgReg} alt="Registration Banner" className='w-full h-full object-cover'/>
       </div>
@@ -118,11 +117,11 @@ const registration = () => {
     </div>
 
   
-        <div className='shadow-lg p-6 m-10 border-t-4 border-green-600 mt-15 w-1/2 mx-auto'>
+        <div className='shadow-lg md:p-6 p-3 md:m-10 m-3 mb-5 border-t-4 border-green-600 mt-15 md:w-1/2 md:mx-auto'>
       <h2>Sign Up</h2>
       
       <div>
-        <form action="submit" className='flex flex-col gap-4 px-10 py-10' onSubmit={handleUserRegistration}>
+        <form action="submit" className='flex flex-col gap-4 md:px-10 md:py-10 p-6' onSubmit={handleUserRegistration}>
 
         <div className='flex flex-col font-sans gap-3 justify-center items-start'>
         <label htmlFor="name">FullName</label>
@@ -192,13 +191,13 @@ const registration = () => {
         </form>
       </div>
       <p>or</p>
-      <div className='grid grid-cols-2 gap-6 px-10 py-10'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:px-10 md:py-10 p-6 text-justify-center items-center'>
         <p className='flex justify-center items-center gap-3 border hover:text-white font-sans border-gray-300 hover:bg-blue-400 p-5'><Facebook size={20}/> import from facebook</p>
         <p className='flex justify-center items-center gap-3 border hover:text-white font-sans border-gray-300 hover:bg-red-700 p-5 '> <Mail size={20}/> import from google</p>
         <p className='flex justify-center items-center gap-3 border hover:text-white font-sans border-gray-300 hover:bg-pink-400 p-5 '><Instagram size={20}/> import from instagram</p>
         <p className='flex justify-center items-center gap-3 border hover:text-white font-sans border-gray-300 hover:bg-blue-700  p-5'><Linkedin size={20}/> import from linkedin</p>
       </div>
-          <p>already have an account? <Link to="/login">Login</Link></p>
+          <p>Already have an account? <Link to="/login" className='text-green-500 hover:text-green-300'>Login</Link></p>
     </div>
       
     </div>

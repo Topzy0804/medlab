@@ -26,13 +26,16 @@ export const UserProvider = ({ children }) => {
     getLoggedInUser();
   }, []);
 
+  
   const logout = async () => {
     await account.deleteSessions("current");
     setUser(null);
   };
-   
+
+  const isAdmin = user && user.email === "azeezullahtolulope1004@gmail.com";
+  
   return (
-    <UserContext.Provider value={{ user, loading, setUser, getLoggedInUser, logout }}>
+    <UserContext.Provider value={{ user, loading, setUser, getLoggedInUser, logout, isAdmin }}>
       {!loading && children}
     </UserContext.Provider>
   );

@@ -87,7 +87,7 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="md:p-8 p-5 bg-green-50 min-h-screen">
       <h2 className="text-xl font-bold mb-6 border-b pb-4">Add Blog</h2>
 
       <form
@@ -154,7 +154,7 @@ const AddBlog = () => {
           </div>
 
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
             <div>
               <label className="block text-sm font-medium">Date :</label>
               <input
@@ -189,8 +189,9 @@ const AddBlog = () => {
               className="w-full border p-2 rounded mt-1"
             >
               <option value="">Select tag</option>
-              <option value="Eye Care">Eye Care</option>
+              <option value="Eye Care">Eye Clinic</option>
               <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">General Doctor</option>
             </select>
           </div>
         </div>

@@ -75,7 +75,7 @@ const PatientDetail = () => {
 
          <td className="px-6 py-4 text-sm text-gray-600">
         <div>
-          <span className="capitalize" style={patient.status === pending }>{patient.status}</span>
+          <span className="capitalize" style={patient.status === "pending" ? { color: "orange" } : { color: "green" }}>{patient.status}</span>
         </div>
         </td>
 

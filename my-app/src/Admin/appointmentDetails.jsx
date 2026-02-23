@@ -1,55 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import { getRows } from "../utils/db";
-
-const AppointmentDetails = () => {
-  const [loading, setLoading] = useState(true);
-  const [appointments, setAppointments] = useState([]);
-
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const response = await getRows(
-        import.meta.env.VITE_APPWRITE_APPOINTMENTS_TABLE_ID,
-      );
-      setAppointments(response.rows || []);
-    } catch (error) {
-      console.error("Error fetching appointments:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+const AppointmentDetails = ({ appointments = [], loading = false }) => {
   if (loading) {
     return (
       <tr>
-        <td colSpan="10">Loading...</td>
+        <td colSpan="11">Loading...</td>
       </tr>
     );
   }
 
-  if (!appointments.length) {
+  if (!appointments || !appointments.length) {
     return (
       <tr>
-        <td colSpan="10">No appointments found.</td>
+        <td colSpan="11">No appointments found.</td>
       </tr>
     );
   }
 
   return (
     <>
-      {appointments.map((appointment) => (
+      {appointments.map((appointment, index) => (
         <tr
           key={appointment.$id}
           className="border-b hover:bg-gray-50 transition-colors"
         >
           <td className="px-6 py-4 text-sm font-bold text-gray-800">
-            {/* {index + 1} */}
+            {index + 1}
           </td>
           <td className="px-6 py-4">
             <div>
@@ -72,18 +49,29 @@ const AppointmentDetails = () => {
             {appointment.department}
           </td>
           <td className="px-6 py-4 text-sm text-gray-600">
-            {new Date(appointment.date).toLocaleDateString()}
+            {appointment.date
+              ? new Date(appointment.date).toLocaleDateString()
+              : "-"}
           </td>
           <td className="px-6 py-4 text-sm text-gray-600">
             {appointment.doctor}
           </td>
-          <td className="px-6 py-4 text-sm text-gray-600" style={{ color: appointment.status === "completed" ? "green" : appointment.status === "cancelled" ? "red" : "blue" }}>
+          <td
+            className="px-6 py-4 text-sm text-gray-600"
+            style={{
+              color:
+                appointment.status === "completed"
+                  ? "green"
+                  : appointment.status === "cancelled"
+                    ? "red"
+                    : "blue",
+            }}
+          >
             {appointment.status}
           </td>
           <td>
-
             <Link to={`/admin/appointment-details/${appointment.$id}`}>
-              <button className="bg-green-600 border p-2 rounded-md text-white font-sans ">
+              <button className="bg-green-600 border p-2 rounded-md text-white font-sans">
                 View Details
               </button>
             </Link>
